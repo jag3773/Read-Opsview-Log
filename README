@@ -1,0 +1,21 @@
+Load Opsview's status.dat into a python dictionary.
+
+  Pass the file path of the log, default is /usr/local/nagios/var/status.dat.
+
+  Returns a dictionary with this format:
+    statusdict = {
+        'host_name': {
+            'host_attribute_desc1': 'attribute_value1',
+             'host_attribute_desc2': 'attribute_value2',
+             ...  etc.  ...
+             }
+        ( 'host_name', 'service_description' ): {
+             'service_attribute_desc1': 'attribute_value1',
+             'service_attribute_desc2': 'attribute_value2',
+             ...  etc.  ...
+             }
+    }
+
+  Use like this:
+from read_opsview_log import *
+statusdict = readlog()

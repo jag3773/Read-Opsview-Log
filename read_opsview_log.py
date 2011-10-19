@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-#  Copyright (c) 2011, Jesse Griffin <jesse@tummy.com>
+#  Copyright (c) 2011, Jesse Griffin <jesse@tummy.com>, tummy.com, ltd.
 #  All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without

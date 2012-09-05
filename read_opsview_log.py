@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 #
-#  Copyright (c) 2011, Jesse Griffin <jesse@tummy.com>, tummy.com, ltd.
+#  Copyright (c) 2012, Jesse Griffin <jesse@tummy.com>
 #  All rights reserved.
+#
+#  Version 1.1
 #
 #  Redistribution and use in source and binary forms, with or without
 #  modification, are permitted provided that the following conditions are met:
@@ -36,6 +38,11 @@ help = '''  Load Opsview's status.dat into a python dictionary.
              ...  etc.  ...
              }
         ( 'host_name', 'service_description' ): {
+             'service_attribute_desc1': 'attribute_value1',
+             'service_attribute_desc2': 'attribute_value2',
+             ...  etc.  ...
+             }
+        ( 'host_name', 'downtime' ): {
              'service_attribute_desc1': 'attribute_value1',
              'service_attribute_desc2': 'attribute_value2',
              ...  etc.  ...
@@ -85,6 +92,11 @@ def readlog(filepath = '/usr/local/nagios/var/status.dat'):
 
     if v.has_key('comment_id'):
       key = v['comment_id']
+    elif v.has_key('downtime_id'):
+      if v.has_key('service_description'):
+        key = ( v['host_name'], v['service_description'], 'downtime' )
+      else:
+        key = ( v['host_name'], 'downtime' )
     elif v.has_key('service_description'):
       key = ( v['host_name'], v['service_description'] )
     else:

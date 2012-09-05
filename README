@@ -14,6 +14,11 @@ Load Opsview's status.dat into a python dictionary.
              'service_attribute_desc2': 'attribute_value2',
              ...  etc.  ...
              }
+        ( 'host_name', 'downtime' ): {
+             'service_attribute_desc1': 'attribute_value1',
+             'service_attribute_desc2': 'attribute_value2',
+             ...  etc.  ...
+             }
     }
 
   Use like this:
